@@ -6,7 +6,7 @@ services:
     startCommand: cd ui && npm start
     envVars:
       - key: NEXT_PUBLIC_BACKEND_URL
-        value: https://backend-abcd.onrender.com
+        value: https://imperial-i4gu.onrender.com
       - key: MONGO_URL
         value: mongodb+srv://tef:greenLeaf.@imperial.iscmrwz.mongodb.net/imperials?retryWrites=true&w=majority&appName=Imperial
       - key: NEXTAUTH_SECRET
@@ -30,6 +30,6 @@ services:
       - key: HMAC_SECRET
         generateValue: true
       - key: FRONTEND_URL
-        value: https://frontend-abcd.onrender.com
+        value: https://imperial-i4gu.onrender.com
       - key: SERVER_URL
-        value: https://backend-abcd.onrender.com
+        value: https://imperial-i4gu.onrender.com
