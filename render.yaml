@@ -13,7 +13,6 @@ services:
         generateValue: true
       - key: NEXT_PUBLIC_ENVIRONMENT
         value: production
-    staticPublishPath: ui/out
   
   - type: web
     name: backend
