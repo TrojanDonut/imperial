@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: frontend
+    env: node
+    buildCommand: cd ui && npm install && npm run build
+    startCommand: cd ui && npm start
+    envVars:
+      - key: NEXT_PUBLIC_BACKEND_URL
+        value: https://backend-abcd.onrender.com
+      - key: MONGO_URL
+        value: mongodb+srv://tef:greenLeaf.@imperial.iscmrwz.mongodb.net/imperials?retryWrites=true&w=majority&appName=Imperial
+      - key: NEXTAUTH_SECRET
+        generateValue: true
+      - key: NEXT_PUBLIC_ENVIRONMENT
+        value: production
+    staticPublishPath: ui/out
+  
+  - type: web
+    name: backend
+    env: go
+    buildCommand: go build -o main cmd/server/main.go
+    startCommand: ./main
+    envVars:
+      - key: MONGO_URL
+        value: mongodb+srv://tef:greenLeaf.@imperial.iscmrwz.mongodb.net/imperials?retryWrites=true&w=majority&appName=Imperial
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: 10000
+      - key: HMAC_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        value: https://frontend-abcd.onrender.com
+      - key: SERVER_URL
+        value: https://backend-abcd.onrender.com
